@@ -1,4 +1,8 @@
-<<template>
+<script setup>
+import NewNoteSection from "../components/notes/NewNoteSection.vue";
+</script>
+
+<template>
     <main>
     <div class="container">
         <div class="row">
@@ -12,7 +16,6 @@
             <div>
                 <!-- Display list of notes -->
                 <h1>"Username" Notes !</h1>
-
             </div>
             
         </div>
@@ -22,6 +25,3 @@
 </template>
 
 
-<script>
-import NewNoteSection from "../components/notes/NewNoteSection.vue";
-</script>
