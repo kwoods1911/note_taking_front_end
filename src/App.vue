@@ -9,10 +9,10 @@ import NotesPage from "./pages/NotesPage.vue";
 
 <template>
   <NavBar/>
-  <!-- <HomePage/>
-  <LoginPage/> -->
-  <!-- <RegisterPage/> -->
-  <NotesPage/>
+  <!-- <HomePage/> -->
+  <!-- <LoginPage/> -->
+  <RegisterPage/>
+  <!-- <NotesPage/> -->
 </template>
 
 <style scoped>
