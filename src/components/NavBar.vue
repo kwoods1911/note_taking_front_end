@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container py-2">
-            <a href="#" class="navbar-brand">
+            <a href="/" class="navbar-brand">
             <span>Diary</span>
             <strong> Cloud</strong>
             </a>
@@ -14,10 +14,10 @@
 
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Login</a>
+          <router-link :to="{ name: 'login' }" class="btn btn-outline-secondary ms-2">Login</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <router-link :to="{name: 'register'}" class="btn btn-danger ms-2">Register</router-link>
         </li>
       </ul>
 
