@@ -1,13 +1,10 @@
 <template>
-    <main>
-        <h1>Organize you thoughts</h1>
+    <main class="px-4 py-5 my-5 text-center" style="min-height: 50vh;">
+        <h1>Organzie and Dump your thoughts here.</h1>
         <div>
-            <p>O</p>
-
-            <div>
-                <a href="#"></a>
-                
-                <a href=""></a>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <router-link :to="{ name: 'register' }" class="btn btn-primary btn-lg px-4 gap-3">Sign up</router-link>
+                <router-link :to="{ name: 'login' }" class="btn btn-outline-secondary btn-lg px-4">Sign in</router-link>
             </div>
         </div>
     </main>
