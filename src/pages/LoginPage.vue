@@ -53,10 +53,10 @@ const form = reactive({
 
 const handleSubmit = async () => {
   await handleLogin(form)
-
-  // if(isLoggedIn.value){
-  //   router.push({ name: 'tasks' })
-  // }
+  console.log(isLoggedIn)
+  if(isLoggedIn.value){
+    router.push({ name: 'notes' })
+  }
 }
 
 
