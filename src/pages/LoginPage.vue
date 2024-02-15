@@ -5,26 +5,22 @@
         <!-- <h1>Cloud Diary</h1> -->
          <h2>Please Sign In</h2>
     </div>
-        {{ form }}
+        
       <form class="px-4 py-3" @submit.prevent="handleSubmit">
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" :class="{ 'is-invalid': errors.email && errors.email[0] }" id="email" v-model="form.email" placeholder="name@example.com" />
           <label class="form-label">Email </label>
-          <input class="form-control" 
-          type="email" 
-          placeholder="name@example.com" 
-          v-model="form.email"
-          />
+          <div class="invalid-feedback" v-if="errors.email && errors.email[0]">
+            {{ errors.email && errors.email[0] }}
+          </div>
         </div>
 
-        <div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" :class="{ 'is-invalid': errors.password && errors.password[0] }" id="password" v-model="form.password" placeholder="Password" />
         <label class="form-label" for="password">Password</label>
-          <input
-            class="form-control"
-            type="password"
-            id="password"
-            placeholder="Password"
-            v-model="form.password"
-          />
+          <div class="invalid-feedback" v-if="errors.password && errors.password[0]">
+                  {{ errors.password && errors.password[0] }}
+          </div>
         </div>
         <button class="btn btn-primary" type="submit">Sign in</button>
       </form>
@@ -43,7 +39,7 @@ import {useAuthStore} from "../stores/auth";
 const router = useRouter()
 const store = useAuthStore()
 
-const { isLoggedIn} = storeToRefs(store)
+const { isLoggedIn, errors} = storeToRefs(store)
 const { handleLogin } = store
 
 const form = reactive({
@@ -53,7 +49,7 @@ const form = reactive({
 
 const handleSubmit = async () => {
   await handleLogin(form)
-  console.log(isLoggedIn)
+  console.log(errors.value)
   if(isLoggedIn.value){
     router.push({ name: 'notes' })
   }

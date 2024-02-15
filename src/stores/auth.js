@@ -20,16 +20,13 @@ export const useAuthStore = defineStore("authStore", () => {
 
     const handleLogin = async (credentials) => {
         await csrfCookie()
-
         try {
             await login(credentials);
             await fetchUser()
             errors.value = {}
         } catch (error) {
-            
             if(error.response && error.response.status === 422){
                 errors.value = error.response.data.errors
-                console.log(error)
             }
         }
     }
