@@ -31,10 +31,16 @@ export const useAuthStore = defineStore("authStore", () => {
         }
     }
 
+    const handleLogout = async () => {
+        await logout()
+        user.value = null
+    }
+
     return {
         user,
         errors,
         handleLogin,
+        handleLogout,
         isLoggedIn
     }
 })
