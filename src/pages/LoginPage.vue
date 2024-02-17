@@ -49,7 +49,6 @@ const form = reactive({
 
 const handleSubmit = async () => {
   await handleLogin(form)
-  console.log(errors.value)
   if(isLoggedIn.value){
     router.push({ name: 'notes' })
   }
