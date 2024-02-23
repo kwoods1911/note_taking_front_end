@@ -1,13 +1,20 @@
 import { defineStore } from "pinia";
 import {computed, ref } from "vue";
 import {csrfCookie,login,register,logout,getUser} from "../http/auth-api";
+import { useCookies } from "vue3-cookies";
+
+
+
+
+
+const {cookies} = useCookies();
 
 export const useAuthStore = defineStore("authStore", () => {
     const user = ref(null)
-
     const errors = ref({})
-
     const isLoggedIn = computed(() => !!user.value)
+
+   
 
     const fetchUser = async () => {
         try{
@@ -19,7 +26,11 @@ export const useAuthStore = defineStore("authStore", () => {
     }
 
     const handleLogin = async (credentials) => {
+        cookies.remove("XSRF-TOKEN");
+        cookies.remove("laravel_session");
+        
         await csrfCookie()
+
         try {
             await login(credentials);
             await fetchUser()
