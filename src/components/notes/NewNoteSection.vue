@@ -8,4 +8,7 @@
 
 <script setup>
 import NewNoteForm from "./NewNoteForm.vue";
+
+
+
 </script>
